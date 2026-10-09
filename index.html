@@ -1,0 +1,541 @@
+<!DOCTYPE html>  <html lang="bn">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<meta name="theme-color" content="#100510">  
+<title>Durga Puja Cyber hackk</title>  <style>  
+*{box-sizing:border-box}  
+  
+body{  
+ margin:0;min-height:100vh;background:#100510;color:white;  
+ font-family:Arial,sans-serif;text-align:center;overflow-x:hidden  
+}  
+  
+.page{  
+ display:none;min-height:100vh;padding:24px 16px;  
+ align-items:center;justify-content:center;flex-direction:column  
+}  
+  
+#page1{display:flex;background:radial-gradient(circle,#681638,#100510 72%)}  
+#page2{background:#020805;color:#00ff87}  
+#page3{background:#090000;color:#ff2828}  
+#page4{background:#030914;color:#42e9ff}  
+  
+h1{font-size:clamp(28px,8vw,46px)}  
+p{line-height:1.6}  
+  
+button{  
+ border:0;border-radius:12px;padding:14px 20px;margin:10px;  
+ background:#ffd166;color:#220a20;font-weight:bold;font-size:16px;  
+ box-shadow:0 0 18px #ffd16644;cursor:pointer  
+}  
+button:active{transform:scale(.97)}  
+  
+.gold{color:#ffd166;text-shadow:0 0 18px #ffb000}  
+  
+.terminal{  
+ width:100%;max-width:520px;min-height:190px;text-align:left;  
+ border:1px solid #00ff87;border-radius:10px;padding:15px;  
+ background:#001208;white-space:pre-wrap;overflow-wrap:anywhere;  
+ overflow-y:auto;max-height:34vh;  
+ box-shadow:0 0 18px #00ff8733;font:14px/1.8 monospace  
+}  
+  
+#terminal,#networkStatus{  
+ font-family:monospace;text-shadow:0 0 5px currentColor  
+}  
+  
+#networkStatus{  
+ min-height:130px;border-color:#00bfff;color:#64eaff;  
+ background:#00101b;box-shadow:0 0 18px #00bfff22  
+}  
+  
+.terminal-cursor{  
+ display:inline-block;width:8px;height:15px;margin-left:2px;  
+ background:#00ff87;vertical-align:middle;  
+ animation:cursorBlink .7s infinite  
+}  
+@keyframes cursorBlink{20%{opacity:0}}  
+  
+.terminal-line{animation:terminalIn .25s ease-out}  
+@keyframes terminalIn{  
+ from{opacity:0;transform:translateY(5px)}  
+ to{opacity:1;transform:translateY(0)}  
+}  
+  
+.bar{  
+ width:90%;max-width:350px;height:22px;border:2px solid currentColor;  
+ margin:20px auto;overflow:hidden;border-radius:5px  
+}  
+.bar div{width:0;height:100%;background:currentColor;transition:width .15s}  
+.small{font-size:12px;opacity:.75}  
+  
+.flower,.confetti{  
+ position:fixed;top:-40px;z-index:20;pointer-events:none;  
+ animation:fall linear forwards  
+}  
+@keyframes fall{  
+ to{transform:translateY(115vh) rotate(700deg);opacity:.15}  
+}  
+  
+.glitch{animation:glitch .15s infinite}  
+@keyframes glitch{  
+ 0%{transform:translate(0)}  
+ 25%{transform:translate(2px,-1px)}  
+ 50%{transform:translate(-2px,1px)}  
+ 75%{transform:translate(1px,2px)}  
+}  
+  
+#virusTitle{animation:warning .7s infinite}  
+@keyframes warning{  
+ 0%,100%{color:#ff2020;text-shadow:0 0 12px red}  
+ 50%{color:#fff;text-shadow:0 0 20px white}  
+}  
+  
+#page3.blink-active{animation:blink .8s infinite}  
+@keyframes blink{  
+ 0%,100%{background:#090000}  
+ 50%{background:#650000}  
+}  
+  
+#page3.light-flash{animation:screenFlash .9s infinite}  
+@keyframes screenFlash{  
+ 0%,100%{background:#080000}  
+ 35%{background:#450000}  
+ 70%{background:#251010}  
+}  
+  
+body.shake{animation:shake .16s infinite}  
+@keyframes shake{  
+ 0%,100%{transform:translate(0)}  
+ 25%{transform:translate(2px,-1px)}  
+ 50%{transform:translate(-2px,1px)}  
+ 75%{transform:translate(1px,2px)}  
+}  
+  
+.celebrate{animation:celebrate 1s infinite alternate}  
+@keyframes celebrate{  
+ from{text-shadow:0 0 8px #ffd166;transform:scale(1)}  
+ to{text-shadow:0 0 24px #ff4d9d;transform:scale(1.03)}  
+}  
+  
+@media(max-width:480px){  
+ .terminal{font-size:12px;padding:12px}  
+ .page{padding:20px 12px}  
+}  
+</style>  </head>  <body>  <section id="page1" class="page">  
+ <div style="font-size:65px">🌺🪷🌺</div>  
+ <h1 class="gold">শুভ শারদীয়া!</h1>  
+ <h2>Durga Puja Special ✨</h2>  
+ <p>তোমার জন্য একটা ছোট্ট surprise! 💖</p>  
+ <button onclick="startExperience()">ENTER THE SURPRISE ➜</button>  
+ <p class="small">Sound and vibration depend on browser support.</p>  
+</section>  <section id="page2" class="page">  
+ <h1 class="glitch">⌨ SYSTEM ACCESS</h1>  
+ <p>ADVANCED SIMULATED HACKER TERMINAL</p>   <div id="terminal" class="terminal"></div>   <div class="bar"><div id="hackBar"></div></div>  
+ <p id="hackPercent">0%</p>   <div id="networkStatus" class="terminal">  
+ &gt; Network simulator ready...  
+ </div>   <p class="small">  
+  ONLY — IPs and simulated logs. HACKING START.  
+ </p>  
+</section>  <section id="page3" class="page">  
+ <h1 id="virusTitle">⚠ VIRUS ALERT ⚠</h1>  
+ <p id="virusMessage">INITIALIZING SIMULATED ALERT...</p>   <div class="bar"><div id="virusBar"></div></div>  
+ <h2 id="virusPercent">0%</h2>  
+ <p id="virusDetails">SIMULATED SCAN • hacked ONLY</p>   <h2 id="virusEnding" style="display:none;color:white">  
+  SIMULATION COMPLETE 🎉  
+ </h2>   <p class="small">hacked only. all  files are scanned or hanged.</p>  
+</section>  <section id="page4" class="page">  
+ <h1 class="glitch">📁 FILE TRANSFER</h1>  
+ <p>SIMULATED DATA TRANSFER</p>   <div id="transferTerminal" class="terminal"  
+ style="background:#020a18;border-color:#42e9ff;color:#42e9ff">  
+ &gt; Preparing started...  
+ </div>   <div class="bar"><div id="transferBar"></div></div>  
+ <h2 id="transferPercent">0%</h2>  
+ <p id="transferSpeed">Preparing transfer...</p>   <div id="finalEnding" style="display:none;color:white">  
+  <h1 class="celebrate">🎉 SURPRISE! 🎉</h1>  
+  <h2>✅ TRANSFER COMPLETE</h2>  
+  <h2>😂 JUST A PRANK BONDHU!</h2>  
+  <h2>❤️ YOUR PHONE IS SAFE</h2>  
+  <h1 class="gold">🌺 শুভ দুর্গাপূজা 🌺</h1>  
+  <p>Enjoy your Puja! Stay happy and safe. 💖</p>  
+ </div>   <p class="small">Demo only. No real files are transferred.</p>  
+</section>  <script>  
+let audioContext=null;  
+let typingSoundOn=false;  
+let typingTimer=null;  
+let transferSoundTimer=null;  
+let runId=0;  
+  
+function showPage(id){  
+ document.querySelectorAll(".page").forEach(p=>p.style.display="none");  
+ document.getElementById(id).style.display="flex";  
+ document.querySelectorAll(".flower").forEach(f=>f.remove());  
+}  
+  
+function makeFlower(){  
+ if(document.getElementById("page1").style.display==="none")return;  
+  
+ const f=document.createElement("div");  
+ f.className="flower";  
+ f.textContent=["🌺","🌸","🪷","🌼"][Math.floor(Math.random()*4)];  
+ f.style.left=Math.random()*100+"vw";  
+ f.style.fontSize=(18+Math.random()*20)+"px";  
+ f.style.animationDuration=(4+Math.random()*4)+"s";  
+ document.body.appendChild(f);  
+ setTimeout(()=>f.remove(),8500);  
+}  
+setInterval(makeFlower,450);  
+  
+function makeConfetti(){  
+ const symbols=["🌸","✨","🎉","🌺","💖","🪷"];  
+  
+ for(let i=0;i<35;i++){  
+  const f=document.createElement("div");  
+  f.className="confetti";  
+  f.textContent=symbols[Math.floor(Math.random()*symbols.length)];  
+  f.style.left=Math.random()*100+"vw";  
+  f.style.fontSize=(16+Math.random()*20)+"px";  
+  f.style.animationDuration=(3+Math.random()*4)+"s";  
+  f.style.animationDelay=Math.random()+"s";  
+  document.body.appendChild(f);  
+  setTimeout(()=>f.remove(),8000);  
+ }  
+}  
+  
+function initAudio(){  
+ try{  
+  const AC=window.AudioContext||window.webkitAudioContext;  
+  if(!AC)return false;  
+  if(!audioContext||audioContext.state==="closed")audioContext=new AC();  
+  audioContext.resume();  
+  return true;  
+ }catch(e){return false;}  
+}  
+  
+function stopCyberSound(){  
+ typingSoundOn=false;  
+ if(typingTimer){clearTimeout(typingTimer);typingTimer=null;}  
+}  
+  
+function stopTransferSound(){  
+ if(transferSoundTimer){  
+  clearInterval(transferSoundTimer);  
+  transferSoundTimer=null;  
+ }  
+}  
+  
+function beep(freq,duration,volume,type){  
+ if(!audioContext||audioContext.state!=="running")return;  
+  
+ try{  
+  const now=audioContext.currentTime;  
+  const osc=audioContext.createOscillator();  
+  const gain=audioContext.createGain();  
+  osc.type=type||"sine";  
+  osc.frequency.setValueAtTime(freq,now);  
+  gain.gain.setValueAtTime(.0001,now);  
+  gain.gain.exponentialRampToValueAtTime(volume,now+.012);  
+  gain.gain.exponentialRampToValueAtTime(.0001,now+duration);  
+  osc.connect(gain);  
+  gain.connect(audioContext.destination);  
+  osc.start(now);  
+  osc.stop(now+duration+.02);  
+ }catch(e){}  
+}  
+  
+function startCyberSound(){  
+ stopCyberSound();  
+ if(!audioContext||audioContext.state!=="running")return;  
+  
+ typingSoundOn=true;  
+ let nextBeep=Date.now()+2400;  
+  
+ function loop(){  
+  if(!typingSoundOn)return;  
+  beep(1100+Math.random()*1600,.025,.018,"triangle");  
+  
+  if(Date.now()>nextBeep){  
+   beep(680,.13,.025,"sine");  
+   nextBeep=Date.now()+2500+Math.random()*2200;  
+  }  
+  typingTimer=setTimeout(loop,65+Math.random()*45);  
+ }  
+ loop();  
+}  
+  
+function startTransferSound(){  
+ stopTransferSound();  
+ if(!audioContext||audioContext.state!=="running")return;  
+  
+ beep(520,.18,.035,"sine");  
+ transferSoundTimer=setInterval(()=>{  
+  beep(520+Math.random()*500,.16,.03,"sine");  
+ },450);  
+}  
+  
+function vibrate(pattern){  
+ try{  
+  if(navigator.vibrate)navigator.vibrate(pattern);  
+ }catch(e){}  
+}  
+  
+function clearEffects(){  
+ stopCyberSound();  
+ stopTransferSound();  
+ document.body.classList.remove("shake");  
+  
+ const p3=document.getElementById("page3");  
+ p3.classList.remove("blink-active","light-flash");  
+ vibrate(0);  
+}  
+  
+function startExperience(){  
+ const id=++runId;  
+ clearEffects();  
+ initAudio();  
+  
+ document.getElementById("virusEnding").style.display="none";  
+ document.getElementById("finalEnding").style.display="none";  
+  
+ showPage("page2");  
+ startCyberSound();  
+ vibrate([200,100,200,100,300]);  
+ runHacker(id);  
+}  
+  
+/* Advanced simulated hacker terminal */  
+function runHacker(id){  
+ const terminal=document.getElementById("terminal");  
+ const network=document.getElementById("networkStatus");  
+ const bar=document.getElementById("hackBar");  
+ const percent=document.getElementById("hackPercent");  
+  
+ const lines=[  
+  "> INITIALIZING ADVANCED DEMO TERMINAL...",  
+  "> LOADING CYBER MODULES...",  
+  "> STARTING SIMULATED NETWORK SCAN...",  
+  "> CHECKING DEMO FIREWALL...",  
+  "> ANALYZING SAMPLE DATA...",  
+  "> ENCRYPTION SIMULATION: ACTIVE...",  
+  "> PREPARING PUJA SURPRISE..."  
+ ];  
+  
+ const logs=[  
+  "[SIM] Demo network interface initialized",  
+  "[SIM] Demo IP: 192.0.2.24",  
+  "[SIM] Remote demo node: 198.51.100.17",  
+  "[SIM] Simulated ports checked: 4",  
+  "[SIM] Firewall test: PASS",  
+  "[SIM] Encryption animation: ACTIVE",  
+  "[SIM] No real network connection made"  
+ ];  
+  
+ terminal.textContent="";  
+ network.textContent="> LIVE SIMULATION LOGS\n";  
+ bar.style.width="0%";  
+ percent.textContent="0%";  
+  
+ let lineIndex=0;  
+ let charIndex=0;  
+  
+ const cursor=document.createElement("span");  
+ cursor.className="terminal-cursor";  
+ terminal.appendChild(cursor);  
+  
+ function typeNext(){  
+  if(id!==runId)return;  
+  
+  if(lineIndex>=lines.length){  
+   cursor.remove();  
+   return;  
+  }  
+  
+  const line=lines[lineIndex];  
+  
+  if(charIndex<line.length){  
+   cursor.insertAdjacentText("beforebegin",line.charAt(charIndex));  
+   charIndex++;  
+   setTimeout(typeNext,22+Math.random()*28);  
+  }else{  
+   terminal.insertBefore(document.createTextNode("\n"),cursor);  
+   lineIndex++;  
+   charIndex=0;  
+  
+   const progress=Math.round(lineIndex/lines.length*100);  
+   bar.style.width=progress+"%";  
+   percent.textContent=progress+"%";  
+   setTimeout(typeNext,350);  
+  }  
+ }  
+  
+ let logIndex=0;  
+  
+ const logTimer=setInterval(()=>{  
+  if(id!==runId){  
+   clearInterval(logTimer);  
+   return;  
+  }  
+  
+  if(logIndex<logs.length){  
+   network.textContent+=logs[logIndex]+"\n";  
+   network.scrollTop=network.scrollHeight;  
+   logIndex++;  
+  }  
+ },850);  
+  
+ typeNext();  
+  
+ setTimeout(()=>{  
+  if(id!==runId){  
+   clearInterval(logTimer);  
+   return;  
+  }  
+  
+  clearInterval(logTimer);  
+  stopCyberSound();  
+  setTimeout(()=>startVirusPage(id),10000);  
+ },9000);  
+}  
+  
+function startVirusPage(id){  
+ if(id!==runId)return;  
+  
+ showPage("page3");  
+  
+ const page=document.getElementById("page3");  
+ page.classList.add("blink-active","light-flash");  
+ document.body.classList.add("shake");  
+ vibrate([200,100,200,100,300]);  
+  
+ const messages=[  
+  "⚠ SIMULATING VIRUS ALERT...",  
+  "GENERATING FAKE WARNING...",  
+  "SIMULATED SCAN IN PROGRESS...",  
+  "FINALIZING PRANK..."  
+ ];  
+  
+ const bar=document.getElementById("virusBar");  
+ const percent=document.getElementById("virusPercent");  
+ const message=document.getElementById("virusMessage");  
+ const details=document.getElementById("virusDetails");  
+ const ending=document.getElementById("virusEnding");  
+  
+ bar.style.width="0%";  
+ percent.textContent="0%";  
+ ending.style.display="none";  
+  
+ let value=0;  
+  
+ const animation=setInterval(()=>{  
+  if(id!==runId){clearInterval(animation);return;}  
+  
+  value=Math.min(100,value+1);  
+  bar.style.width=value+"%";  
+  percent.textContent=value+"%";  
+  
+  message.textContent=messages[Math.min(3,Math.floor(value/25))];  
+  details.textContent=value<100  
+   ?"SIMULATED SCAN • DEMO ONLY"  
+   :"SIMULATION COMPLETE";  
+  
+  if(value>=100){  
+   clearInterval(animation);  
+   page.classList.remove("blink-active","light-flash");  
+   document.body.classList.remove("shake");  
+  
+   message.textContent="SYSTEM SAFE — SURPRISE! 🎉";  
+   ending.style.display="block";  
+   details.textContent="Preparing simulated file transfer...";  
+   vibrate(0);  
+  
+   setTimeout(()=>startFileTransfer(id),10000);  
+  }  
+ },100);  
+}  
+  
+/* File transfer with vibration effects */  
+function startFileTransfer(id){  
+ if(id!==runId)return;  
+  
+ showPage("page4");  
+  
+ // Vibration when page 4 opens  
+ vibrate([200,100,200,100,300]);  
+  
+ const terminal=document.getElementById("transferTerminal");  
+ const bar=document.getElementById("transferBar");  
+ const percent=document.getElementById("transferPercent");  
+ const speed=document.getElementById("transferSpeed");  
+ const ending=document.getElementById("finalEnding");  
+  
+ const files=[  
+  "_file_01.dat",  
+  "puja_surprise.zip",  
+  "cyber_.js",  
+  "_system_log.txt",  
+  "realistic_message.txt"  
+ ];  
+  
+ terminal.textContent="> Starting simulated transfer...\n";  
+ bar.style.width="0%";  
+ percent.textContent="0%";  
+ ending.style.display="none";  
+  
+ startTransferSound();  
+  
+ let value=0;  
+ let lastIndex=-1;  
+  
+ const transfer=setInterval(()=>{  
+  if(id!==runId){  
+   clearInterval(transfer);  
+   return;  
+  }  
+  
+  value=Math.min(100,value+2);  
+  bar.style.width=value+"%";  
+  percent.textContent=value+"%";  
+  
+  const index=Math.min(  
+   files.length-1,  
+   Math.floor(value/100*files.length)  
+  );  
+  
+  if(index!==lastIndex){  
+   lastIndex=index;  
+   terminal.textContent+="> Simulating: "+files[index]+"\n";  
+   terminal.scrollTop=terminal.scrollHeight;  
+  
+   // Short vibration as each demo file appears  
+   vibrate(60);  
+  }  
+  
+  speed.textContent="Demo transfer speed: "+  
+   (1+Math.random()*8).toFixed(1)+" MB/s";  
+  
+  if(value>=100){  
+   clearInterval(transfer);  
+   stopTransferSound();  
+  
+   // Transfer completion vibration  
+   vibrate([150,80,150,80,300]);  
+  
+   terminal.textContent+="\n>  TRANSFER COMPLETE\n";  
+   speed.textContent="Transfer  finished";  
+  
+   // Wait 10 seconds before final reveal  
+   setTimeout(()=>{  
+    if(id!==runId)return;  
+  
+    ending.style.display="block";  
+    makeConfetti();  
+  
+    // Final surprise vibration  
+    vibrate([1000,60,100,60,250]);  
+   },10000);  
+  }  
+ },180);  
+}  
+</script>  </body>  
+</html>  
